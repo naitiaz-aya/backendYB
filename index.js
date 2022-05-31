@@ -10,9 +10,10 @@ const mongoose = require("mongoose")
 //const dotenv = require("dotenv")
 // Helmet vous aide à sécuriser vos applications 
 // Express en définissant divers en-têtes HTTP.
-//const helmet = require("helmet")
+const helmet = require("helmet")
 // Middleware de l'enregistreur de requêtes HTTP pour node.js
 const morgan = require("morgan")
+const cors = require("cors");
 const app = express()
 var http = require('http');
 //const router = express.Router();
@@ -24,6 +25,11 @@ const postRoute = require("./routes/posts");
 //const { route } = require('./routes/auth');
 
 //dotenv.config()
+app.use(cors({
+        credentials:true,
+        origin: "http://localhost:8800/"
+    }))
+
 
 mongoose.connect(
   'mongodb://localhost:27017/socialmedia',
@@ -35,7 +41,7 @@ mongoose.connect(
 
 //middlware -code that runs before the final route call back.
 app.use(express.json())
-//app.use(helmet())
+app.use(helmet())
 app.use(morgan("common"))
 
 
