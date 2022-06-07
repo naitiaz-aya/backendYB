@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema(
     },
     coverPicture: {
       type: String,
-      default: "",
+      default: "person/noAvatar.png",
     },
     followers: {
       type: Array,
@@ -47,10 +47,12 @@ const UserSchema = new mongoose.Schema(
     city: {
       type: String,
       max: 50,
+	  default:"Marrakech"
     },
     from: {
       type: String,
       max: 50,
+	  default:"Marrakech"
     },
     relationship: {
       type: Number,

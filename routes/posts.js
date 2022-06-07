@@ -13,5 +13,7 @@ router.put("/:id/like",postController.likePost)
 router.get("/:id", postController.getPost)
 //get timeline posts 
 router.get("/timeline/:userId", postController.getTimelinePosts)
+//get user' all posts 
+router.get("/profile/:username", postController.getUserPosts)
 
 module.exports = router
